@@ -59,6 +59,10 @@ services:
     networks:
       - elastic
 
+networks:
+  elastic:
+    driver: bridge
+
 volumes:
   data01:
     driver: local
@@ -66,8 +70,4 @@ volumes:
     driver: local
   data03:
     driver: local
-
-networks:
-  elastic:
-    driver: bridge
 
