@@ -18,20 +18,20 @@ set_index_replicas()
 	----------------------------------------------------------
 }
 
-cmd_list()
+cmds()
 {
     echo "Available args:"
     echo
    #echo ${FUNCNAME}
-    bash -c "source '$SCRIPT_NAME' 'cmd_list' >/dev/null; compgen -A function" 2>/dev/null | grep -v cmd_list
+    bash -c "source '$SCRIPT_NAME' TRUE; compgen -A function" 2>/dev/null | grep -vw cmds
 }
 
 if [ $# = 0 ]; then
-    echo "To see available arguments use this:\n\n$0 cmd_list"
+    echo "To see available arguments use this:\n\n$0 cmds"
     exit 1
 fi
 
-if [ $1 != "cmd_list" ]; then
+if [ $1 != "cmds" ]; then
     set -x
 fi
 
