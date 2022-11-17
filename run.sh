@@ -2,6 +2,11 @@
 
  SCRIPT_NAME="$0"
 
+list_indices()
+{
+    curl -XGET 'localhost:9200/_cat/indices?v'
+}
+
 set_index_replicas()
 {
     INDEX_NAME=${1:-sampleindex}
