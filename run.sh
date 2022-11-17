@@ -16,4 +16,5 @@ set_index_replicas()
 	----------------------------------------------------------
 }
 
+set -x
 set_index_replicas
