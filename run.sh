@@ -23,7 +23,7 @@ cmd_list()
     echo "Available args:"
     echo
    #echo ${FUNCNAME}
-    bash -c "source '$SCRIPT_NAME' 'cmd_list'; compgen -A function" | grep -v cmd_list
+    bash -c "source '$SCRIPT_NAME' 'cmd_list' >/dev/null; compgen -A function" 2>/dev/null | grep -v cmd_list
 }
 
 if [ $# = 0 ]; then
