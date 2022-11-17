@@ -1,9 +1,0 @@
-version: '2.2'
-services:
-  es03:
-    volumes:
-      - data03-offsite:/usr/share/elasticsearch/data
-
-volumes:
-  data03-offsite:
-    driver: local

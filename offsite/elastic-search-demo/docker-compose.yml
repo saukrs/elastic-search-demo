@@ -1,1 +1,28 @@
-../../docker-compose.override.yml
+version: '2.2'
+services:
+  es03-offsite:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.3
+    container_name: es03-offsite
+    environment:
+      - node.name=es03
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es01,es02
+      - cluster.initial_master_nodes=es01,es02,es03
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data03-offsite:/usr/share/elasticsearch/data
+    networks:
+      - elastic
+
+networks:
+  elastic:
+    driver: bridge
+
+volumes:
+  data03-offsite:
+    driver: local
