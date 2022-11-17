@@ -4,15 +4,15 @@
 
 list_indices()
 {
-    curl -XGET 'localhost:9200/_cat/indices?v'
+    curl -XGET "localhost:9200/_cat/indices?v"
 }
 
 set_index_replicas()
 {
     INDEX_NAME=${1:-sampleindex}
     REPLIC_NUM=${2:-2}
-    curl -XPUT 'localhost:9200/$INDEX_NAME/_settings?pretty' \
-      -H 'Content-Type: application/json; charset=utf-8' \
+    curl -XPUT "localhost:9200/$INDEX_NAME/_settings?pretty" \
+      -H "Content-Type: application/json; charset=utf-8" \
       -d @- <<- \
 	----------------------------------------------------------
 	{
