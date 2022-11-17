@@ -31,5 +31,8 @@ if [ $# = 0 ]; then
     exit 1
 fi
 
-set -x
+if [ $1 != "cmd_list" ]; then
+    set -x
+fi
+
 $1
