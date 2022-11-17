@@ -20,9 +20,16 @@ set_index_replicas()
 
 cmd_list()
 {
+    echo "Available args:"
+    echo
    #echo ${FUNCNAME}
-    bash -c "source '$SCRIPT_NAME'; compgen -A function" | grep -v cmd_list
+    bash -c "source '$SCRIPT_NAME' 'cmd_list'; compgen -A function" | grep -v cmd_list
 }
 
+if [ $# = 0 ]; then
+    echo "To see available arguments use this:\n\n$0 cmd_list"
+    exit 1
+fi
+
 set -x
-set_index_replicas
+$1
