@@ -43,7 +43,7 @@ set_index_replicas()
 
 cmds()
 {
-    echo "Available args:"
+    echo "Available sub-commands:"
     echo
    # TODO: Investigate -- unsure why I need $1 here (any value would do).
    # Without it the `source ...` fails in a strange way:
@@ -51,7 +51,7 @@ cmds()
 }
 
 if [ $# = 0 ]; then
-    echo "To see available arguments use this:\n\n$0 cmds"
+    echo "To see available sub-commands use this:\n\n$0 cmds"
     exit 1
 fi
 
