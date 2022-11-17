@@ -18,6 +18,11 @@ list_nodes()
     curl -XGET "localhost:9200/_cat/nodes?v"
 }
 
+list_shards()
+{
+    curl -XGET "localhost:9200/_cat/shards?v"
+}
+
 set_index_replicas()
 {
     INDEX_NAME=${1:-sampleindex}
