@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+ SCRIPT_NAME="$0"
+
 set_index_replicas()
 {
     curl -XPUT 'localhost:9200/sampleindex/_settings?pretty' \
@@ -14,6 +16,12 @@ set_index_replicas()
 	  }
 	}
 	----------------------------------------------------------
+}
+
+cmd_list()
+{
+   #echo ${FUNCNAME}
+    bash -c "source '$SCRIPT_NAME'; compgen -A function" | grep -v cmd_list
 }
 
 set -x
