@@ -20,9 +20,11 @@ set_index_replicas()
 
 cmds()
 {
+   #echo ${FUNCNAME}
     echo "Available args:"
     echo
-   #echo ${FUNCNAME}
+   # TODO: Investigate -- unsure why I need $1 here (any value would do).
+   # Without it the `source ...` fails in a strange way:
     bash -c "source '$SCRIPT_NAME' TRUE; compgen -A function" 2>/dev/null | grep -vw cmds
 }
 
