@@ -4,8 +4,9 @@
 
 set_index_replicas()
 {
+    INDEX_NAME=${1:-sampleindex}
     REPLIC_NUM=${2:-2}
-    curl -XPUT 'localhost:9200/sampleindex/_settings?pretty' \
+    curl -XPUT 'localhost:9200/$INDEX_NAME/_settings?pretty' \
       -H 'Content-Type: application/json; charset=utf-8' \
       -d @- <<- \
 	----------------------------------------------------------
@@ -17,7 +18,6 @@ set_index_replicas()
 	  }
 	}
 	----------------------------------------------------------
-    echo "Exit code: $?"
 }
 
 cmds()
