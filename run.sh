@@ -43,7 +43,6 @@ set_index_replicas()
 
 cmds()
 {
-   #echo ${FUNCNAME}
     echo "Available args:"
     echo
    # TODO: Investigate -- unsure why I need $1 here (any value would do).
