@@ -56,8 +56,10 @@ if [ $# = 0 ]; then
     exit 1
 fi
 
-if [ $1 != "cmds" ]; then
+CMD=$1; shift
+
+if [ $CMD != "cmds" ]; then
     set -x
 fi
 
-CMD=$1; shift; $CMD $@
+$CMD $@
