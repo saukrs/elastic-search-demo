@@ -5,29 +5,29 @@
 create_index()
 {
     INDEX_NAME=${1:-sampleindex}
-    curl -XPUT "localhost:9200/$INDEX_NAME?pretty"
+    curl -sX PUT "localhost:9200/$INDEX_NAME?pretty"
 }
 
 list_indices()
 {
-    curl -XGET "localhost:9200/_cat/indices?v"
+    curl -sX GET "localhost:9200/_cat/indices?v"
 }
 
 list_nodes()
 {
-    curl -XGET "localhost:9200/_cat/nodes?v"
+    curl -sX GET "localhost:9200/_cat/nodes?v"
 }
 
 list_shards()
 {
-    curl -XGET "localhost:9200/_cat/shards?v"
+    curl -sX GET "localhost:9200/_cat/shards?v"
 }
 
 set_index_replicas()
 {
     INDEX_NAME=${1:-sampleindex}
     REPLIC_NUM=${2:-2}
-    curl -XPUT "localhost:9200/$INDEX_NAME/_settings?pretty" \
+    curl -sX PUT "localhost:9200/$INDEX_NAME/_settings?pretty" \
       -H "Content-Type: application/json; charset=utf-8" \
       -d @- <<- \
 	----------------------------------------------------------
@@ -66,4 +66,4 @@ if [ $CMD != "cmds" ]; then
     set -x
 fi
 
-$CMD $@
+$CMD $@ | cat
