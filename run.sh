@@ -2,6 +2,12 @@
 
  SCRIPT_NAME="$0"
 
+create_index()
+{
+    INDEX_NAME=${1:-sampleindex}
+    curl -XPUT "localhost:9200/$INDEX_NAME?pretty"
+}
+
 list_indices()
 {
     curl -XGET "localhost:9200/_cat/indices?v"
