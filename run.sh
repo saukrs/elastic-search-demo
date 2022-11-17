@@ -41,6 +41,11 @@ set_index_replicas()
 	----------------------------------------------------------
 }
 
+watch_cluster()
+{
+    watch -n 0.2 "$SCRIPT_NAME list_shards; echo; $SCRIPT_NAME list_nodes"
+}
+
 cmds()
 {
     echo "Available sub-commands:"
