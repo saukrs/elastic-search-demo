@@ -4,6 +4,7 @@
 
 set_index_replicas()
 {
+    REPLIC_NUM=${2:-2}
     curl -XPUT 'localhost:9200/sampleindex/_settings?pretty' \
       -H 'Content-Type: application/json; charset=utf-8' \
       -d @- <<- \
@@ -11,11 +12,12 @@ set_index_replicas()
 	{
 	  "settings": {
 	    "index": {
-	      "number_of_replicas": 2
+	      "number_of_replicas": $REPLIC_NUM
 	    }
 	  }
 	}
 	----------------------------------------------------------
+    echo "Exit code: $?"
 }
 
 cmds()
@@ -37,4 +39,4 @@ if [ $1 != "cmds" ]; then
     set -x
 fi
 
-$1
+CMD=$1; shift; $CMD $@
