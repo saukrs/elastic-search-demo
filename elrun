@@ -63,6 +63,11 @@ list_cluster_state()
     curl -sX GET "localhost:9200/_cluster/state?pretty"
 }
 
+list_cluster_stats()
+{
+    curl -sX GET "localhost:9200/_cluster/stats?human&pretty"
+}
+
 list_indices()
 {
     curl -sX GET "localhost:9200/_cat/indices?v"
