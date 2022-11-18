@@ -53,6 +53,11 @@ list_cluster_pending()
     curl -sX GET "localhost:9200/_cluster/pending_tasks?pretty"
 }
 
+list_cluster_settings()
+{
+    curl -sX GET "localhost:9200/_cluster/settings?include_defaults&pretty"
+}
+
 list_indices()
 {
     curl -sX GET "localhost:9200/_cat/indices?v"
