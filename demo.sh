@@ -32,6 +32,9 @@ echo; echo Next?; read REPLY
 echo; echo - Shutdown the node
 echo; elrun cluster_es03_down
 echo; elrun cluster_es03_offsite_down
+echo
+
+echo; echo - Reduced ES cluster:
 echo; elrun list_disk
 echo; elrun list_indices
 echo; echo Next?; read REPLY
@@ -46,6 +49,9 @@ echo; echo Next?; read REPLY
 echo; echo - Wait for the node to join the cluster:
       kill_after 25 watch &
 echo; elrun cluster_watch
+echo
+
+echo; echo - Restored ES cluster:
 echo; elrun list_nodes
 echo; elrun list_disk
 echo; elrun list_indices
