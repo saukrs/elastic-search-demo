@@ -1,14 +1,12 @@
 #!/usr/bin/env sh
 
 clear
-echo
-echo - Initial state
-echo
-elrun list_cluster_settings
-elrun list_disk
-elrun list_indices
-echo
-echo Next?; read
+
+echo; echo - Initial state
+echo; elrun list_cluster_settings
+echo; elrun list_disk
+echo; elrun list_indices
+echo; echo Next?; read
 
 echo
 echo - Exclude the node
