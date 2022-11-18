@@ -21,11 +21,11 @@ echo; echo - Initial ES cluster state:
 echo; elrun list_cluster_settings
 echo; elrun list_disk
 echo; elrun list_indices
+echo; elrun list_shards
 echo; echo Next?; read REPLY
 
 echo; echo - Exclude the node
 echo; elrun exclude_node es03
-echo; elrun list_nodes
 echo; elrun list_disk
 echo; elrun list_indices
 echo; echo Next?; read REPLY
@@ -38,11 +38,11 @@ echo
 echo; echo - Reduced ES cluster:
 echo; elrun list_disk
 echo; elrun list_indices
+echo; elrun list_shards
 echo; echo Next?; read REPLY
 
 echo; echo - Bring up the backup node
 echo; elrun cluster_es03_offsite_up
-echo; elrun list_nodes
 echo; elrun list_disk
 echo; elrun list_indices
 echo; echo Next?; read REPLY
@@ -53,7 +53,6 @@ echo; elrun cluster_watch
 echo
 
 echo; echo - Restored ES cluster:
-echo; elrun list_nodes
 echo; elrun list_disk
 echo; elrun list_indices
 echo; echo Next?; read REPLY
@@ -70,7 +69,6 @@ echo; elrun cluster_watch
 echo
 
 echo; echo - The final ES state:
-echo; elrun list_nodes
 echo; elrun list_disk
 echo; elrun list_indices
 echo; elrun list_shards
