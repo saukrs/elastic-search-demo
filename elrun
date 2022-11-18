@@ -51,7 +51,7 @@ exclude_node()
 	----------------------------------------------------------
 	{
 	  "transient": {
-	    "cluster.routing.allocation.exclude._ip": "192.168.192.2"
+	    "cluster.routing.allocation.exclude._name": "es03"
 	  }
 	}
 	----------------------------------------------------------
