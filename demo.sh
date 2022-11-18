@@ -20,15 +20,12 @@ echo; elrun list_disk
 echo; elrun list_indices
 echo; echo Next?; read
 
-echo
-echo - Bring up the backup node
-echo
-elrun cluster_es03_offsite_up
-elrun list_nodes
-elrun list_disk
-elrun list_indices
-echo
-echo Next?; read
+echo; echo - Bring up the backup node
+echo; elrun cluster_es03_offsite_up
+echo; elrun list_nodes
+echo; elrun list_disk
+echo; elrun list_indices
+echo; echo Next?; read
 
 echo
 echo - Wait for the node to joing the cluster
