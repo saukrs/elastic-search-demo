@@ -67,5 +67,12 @@ echo
 echo; echo - Wait for the replicas to distribute:
       kill_after 10 watch &
 echo; elrun cluster_watch
+echo
+
+echo; echo - The final ES state:
+echo; elrun list_nodes
+echo; elrun list_disk
+echo; elrun list_indices
+echo; elrun list_shards
 
 echo; echo - Demo is over.
