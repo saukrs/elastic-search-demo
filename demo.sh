@@ -2,6 +2,10 @@
 
 clear
 
+echo; echo - Docker Compose main site:
+echo; elrun cluster__up
+echo; echo Next?; read REPLY
+
 echo; echo - Initial Docker state:
 echo; elrun cluster_ps
 echo; echo Next?; read REPLY
@@ -43,4 +47,5 @@ echo; echo - Allow node to be routed again
 echo; elrun exclude_node
 echo; elrun list_disk
 echo; elrun list_indices
+
 echo; echo - Demo is over.
