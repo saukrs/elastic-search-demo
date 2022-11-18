@@ -43,6 +43,11 @@ create_index()
     curl -sX PUT "localhost:9200/$INDEX_NAME?pretty"
 }
 
+list_cluster_pending()
+{
+    curl -sX GET "localhost:9200/_cluster/pending_tasks?pretty"
+}
+
 list_indices()
 {
     curl -sX GET "localhost:9200/_cat/indices?v"
