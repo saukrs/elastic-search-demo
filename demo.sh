@@ -1,10 +1,21 @@
 #!/usr/bin/env sh
 
+kill_after()
+{
+    sleep $1
+    kill `pidof $2`
+}
+
 clear
 
 echo; echo - Starting main site:
 echo; elrun cluster__up
 echo; echo Next?; read REPLY
+
+echo; echo - Waiting for ES cluster:
+      kill_after 49 watch &
+echo; elrun cluster_watch
+echo
 
 echo; echo - Initial ES cluster state:
 echo; elrun list_cluster_settings
