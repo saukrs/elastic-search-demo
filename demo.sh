@@ -2,12 +2,8 @@
 
 clear
 
-echo; echo - Docker Compose main site:
+echo; echo - Starting main site:
 echo; elrun cluster__up
-echo; echo Next?; read REPLY
-
-echo; echo - Initial Docker state:
-echo; elrun cluster_ps
 echo; echo Next?; read REPLY
 
 echo; echo - Initial ES cluster state:
