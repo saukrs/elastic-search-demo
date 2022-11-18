@@ -45,12 +45,13 @@ create_index()
 
 explain_shard_alloc()
 {
+    INDEX_NAME=${1:-sampleindex}
     curl -sX GET "localhost:9200/_cluster/allocation/explain?pretty" \
         -H "Content-Type: application/json; charset=utf-8" \
         -d @- <<- \
 	----------------------------------------------------------
 	{
-	  "index": "sampleindex",
+	  "index": "$INDEX_NAME",
 	  "shard": 0,
 	  "primary": false
 	}
