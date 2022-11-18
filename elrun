@@ -45,11 +45,15 @@ create_index()
 
 explain_shard_alloc()
 {
-    if [ "$5" = "disk" ]; then INCLU_DISK="include_disk_info&"; fi
     INDEX_NAME=${1:-sampleindex}
     SHARD_NUMB=${2:-0}
     SHARD_PRIM=${3:-true}
     CURRE_NODE=${4:-es01}
+
+    if [ "$5" = "disk" ]; then
+        INCLU_DISK="include_disk_info&"
+    fi
+
     curl -sX GET "localhost:9200/_cluster/allocation/explain?${INCLU_DISK}pretty" \
         -H "Content-Type: application/json; charset=utf-8" \
         -d @- <<- \
