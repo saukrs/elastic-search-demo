@@ -8,6 +8,13 @@ cluster_up()
     docker compose ps
 }
 
+cluster__down()
+{
+    docker compose down
+    docker compose -f docker-compose.offsite.yml down
+    cluster_ps
+}
+
 cluster_es03_down()
 {
     docker compose stop es03
