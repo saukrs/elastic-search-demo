@@ -61,7 +61,7 @@ echo; echo - Allow node to be routed again
 echo; elrun exclude_node
 echo; elrun list_disk
 echo; elrun list_indices
-echo
+echo; echo Next?; read REPLY
 
 echo; echo - Wait for the replicas to distribute:
       kill_after 10 watch &
