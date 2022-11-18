@@ -24,6 +24,12 @@ cluster_es03_offsite_up()
     docker compose -f docker-compose.offsite.yml up -d
 }
 
+cluster_ps()
+{
+    docker compose ps
+    docker compose -f docker-compose.offsite.yml ps
+}
+
 create_index()
 {
     INDEX_NAME=${1:-sampleindex}
