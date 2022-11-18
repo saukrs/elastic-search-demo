@@ -192,4 +192,4 @@ if [ $CMD != "cmds" ]; then
     set -x
 fi
 
-$CMD $@ | cat
+$CMD $@
