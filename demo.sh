@@ -13,7 +13,7 @@ echo; elrun cluster__up
 echo; echo Next?; read REPLY
 
 echo; echo - Waiting for ES cluster:
-      kill_after 49 watch &
+      kill_after 50 watch &
 echo; elrun cluster_watch
 echo
 
