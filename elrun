@@ -13,6 +13,12 @@ cluster_es03_down()
     docker compose stop es03
 }
 
+cluster_es03_offsite_down()
+{
+   #docker compose -f docker-compose.offsite.yml stop es03-offsite
+    docker compose -f docker-compose.offsite.yml down
+}
+
 cluster_es03_offsite_up()
 {
     docker compose -f docker-compose.offsite.yml up -d
