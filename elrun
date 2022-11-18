@@ -97,7 +97,7 @@ list_cluster_settings()
         INCLUDE_DEFAULTS="include_defaults&"
     fi
 
-    curl -sX GET "localhost:9200/_cluster/settings?include_defaults&pretty"
+    curl -sX GET "localhost:9200/_cluster/settings?${INCLUDE_DEFAULTS}pretty"
 }
 
 list_cluster_state()
