@@ -37,6 +37,11 @@ cluster_ps()
     docker compose -f docker-compose.offsite.yml ps
 }
 
+cluster_watch()
+{
+    watch -n 0.2 "$SCRIPT_NAME list_shards; echo; $SCRIPT_NAME list_nodes"
+}
+
 create_index()
 {
     INDEX_NAME=${1:-sampleindex}
@@ -162,11 +167,6 @@ set_index_replicas()
 	  }
 	}
 	----------------------------------------------------------
-}
-
-watch_cluster()
-{
-    watch -n 0.2 "$SCRIPT_NAME list_shards; echo; $SCRIPT_NAME list_nodes"
 }
 
 cmds()
