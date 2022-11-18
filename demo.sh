@@ -72,5 +72,10 @@ echo; echo - The final ES state:
 echo; elrun list_disk
 echo; elrun list_indices
 echo; elrun list_shards
+echo; echo Next?; read REPLY
+
+echo; echo - Destroy the containers:
+echo; elrun cluster_es03_offsite_down
+echo; elrun cluster__down
 
 echo; echo - Demo is over.
