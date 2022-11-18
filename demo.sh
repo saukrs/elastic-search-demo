@@ -90,6 +90,8 @@ echo; elrun list_indices
 echo; elrun list_shards
 echo; echo Next?; read REPLY
 
+echo; echo - TODO: List the rebalanced Docker containers
+
 echo; echo - Destroy the containers:
 echo; elrun cluster_es03_offsite_down
 echo; elrun cluster__down
