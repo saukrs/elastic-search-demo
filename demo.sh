@@ -16,6 +16,7 @@ echo; echo Next?; read
 
 echo; echo - Shutdown the node
 echo; elrun cluster_es03_down
+echo; elrun cluster_es03_offsite_down
 echo; elrun list_disk
 echo; elrun list_indices
 echo; echo Next?; read
