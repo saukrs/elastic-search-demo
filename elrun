@@ -87,7 +87,9 @@ cmds()
     echo
    # TODO: Investigate -- unsure why I need $1 here (any value would do).
    # Without it the `source ...` fails in a strange way:
-    bash -c "source '$SCRIPT_NAME' TRUE; compgen -A function" 2>/dev/null | grep -vw cmds
+    bash -c "source '$SCRIPT_NAME' TRUE; compgen -A function" 2>/dev/null \
+      | awk '!/cmds/ {sub(/^/, "- "); print}'
+    echo
 }
 
 if [ $# = 0 ]; then
