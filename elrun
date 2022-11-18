@@ -8,6 +8,11 @@ cluster_up()
     docker compose ps
 }
 
+cluster_es03_down()
+{
+    docker compose stop es03
+}
+
 create_index()
 {
     INDEX_NAME=${1:-sampleindex}
