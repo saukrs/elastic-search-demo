@@ -44,7 +44,8 @@ echo; elrun list_indices
 echo; echo Next?; read REPLY
 
 echo; echo - Wait for the node to join the cluster:
-echo; sleep 5
+      kill_after 25 watch &
+echo; elrun cluster_watch
 echo; elrun list_nodes
 echo; elrun list_disk
 echo; elrun list_indices
