@@ -13,6 +13,11 @@ cluster_es03_down()
     docker compose stop es03
 }
 
+cluster_es03_offsite_up()
+{
+    docker compose -f docker-compose.offsite.yml up -d
+}
+
 create_index()
 {
     INDEX_NAME=${1:-sampleindex}
