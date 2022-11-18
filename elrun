@@ -45,13 +45,19 @@ create_index()
 
 exclude_node()
 {
+    if [ "$1" = "" ]; then
+        NODE_NAME="null"
+    else
+        NODE_NAME="\"$1\""
+    fi
+
     curl -sX PUT "localhost:9200/_cluster/settings?pretty" \
         -H "Content-Type: application/json; charset=utf-8" \
         -d @- <<- \
 	----------------------------------------------------------
 	{
 	  "transient": {
-	    "cluster.routing.allocation.exclude._name": "es03"
+	    "cluster.routing.allocation.exclude._name": $NODE_NAME
 	  }
 	}
 	----------------------------------------------------------
