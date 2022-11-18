@@ -93,7 +93,7 @@ cmds()
 }
 
 if [ $# = 0 ]; then
-    echo "To see available sub-commands use this:\n\n$0 cmds"
+    echo "For available sub-commands:\n\n$0 cmds"
     exit 1
 fi
 
