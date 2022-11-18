@@ -8,14 +8,11 @@ echo; elrun list_disk
 echo; elrun list_indices
 echo; echo Next?; read
 
-echo
-echo - Exclude the node
-echo
-elrun exclude_node es03
-elrun list_disk
-elrun list_indices
-echo
-echo Next?; read
+echo; echo - Exclude the node
+echo; elrun exclude_node es03
+echo; elrun list_disk
+echo; elrun list_indices
+echo; echo Next?; read
 
 echo
 echo - Shutdown the node
