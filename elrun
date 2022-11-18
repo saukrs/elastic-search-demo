@@ -58,6 +58,11 @@ list_nodes()
     curl -sX GET "localhost:9200/_cat/nodes?v"
 }
 
+list_remote_info()
+{
+    curl -sX GET "localhost:9200/_remote/info?pretty"
+}
+
 list_shards()
 {
     curl -sX GET "localhost:9200/_cat/shards?v"
