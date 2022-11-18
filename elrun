@@ -93,6 +93,10 @@ list_cluster_pending()
 
 list_cluster_settings()
 {
+    if [ "$1" = "defaults" ]; then
+        INCLUDE_DEFAULTS="include_defaults&"
+    fi
+
     curl -sX GET "localhost:9200/_cluster/settings?include_defaults&pretty"
 }
 
