@@ -58,6 +58,11 @@ list_shards()
     curl -sX GET "localhost:9200/_cat/shards?v"
 }
 
+list_tasks()
+{
+    curl -sX GET "localhost:9200/_tasks?pretty"
+}
+
 set_index_replicas()
 {
     INDEX_NAME=${1:-sampleindex}
