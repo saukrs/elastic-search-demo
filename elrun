@@ -48,6 +48,7 @@ explain_shard_alloc()
     INDEX_NAME=${1:-sampleindex}
     SHARD_NUMB=${2:-0}
     SHARD_PRIM=${3:-true}
+    CURRE_NODE=${4:-es01}
     curl -sX GET "localhost:9200/_cluster/allocation/explain?pretty" \
         -H "Content-Type: application/json; charset=utf-8" \
         -d @- <<- \
@@ -55,7 +56,8 @@ explain_shard_alloc()
 	{
 	  "index": "$INDEX_NAME",
 	  "shard": $SHARD_NUMB,
-	  "primary": $SHARD_PRIM
+	  "primary": $SHARD_PRIM,
+	  "current_node": "$CURRE_NODE"
 	}
 	----------------------------------------------------------
 }
