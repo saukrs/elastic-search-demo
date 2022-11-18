@@ -2,6 +2,12 @@
 
  SCRIPT_NAME="$0"
 
+cluster_up()
+{
+    docker compose up -d
+    docker compose ps
+}
+
 create_index()
 {
     INDEX_NAME=${1:-sampleindex}
