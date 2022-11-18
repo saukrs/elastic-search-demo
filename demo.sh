@@ -34,11 +34,8 @@ echo; elrun list_disk
 echo; elrun list_indices
 echo; echo Next?; read
 
-echo
-echo - Allow node to be routed again
-echo
-elrun exclude_node
-elrun list_disk
-elrun list_indices
-echo
-echo - Demo is over.
+echo; echo - Allow node to be routed again
+echo; elrun exclude_node
+echo; elrun list_disk
+echo; elrun list_indices
+echo; echo - Demo is over.
