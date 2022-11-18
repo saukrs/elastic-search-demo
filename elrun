@@ -43,6 +43,11 @@ create_index()
     curl -sX PUT "localhost:9200/$INDEX_NAME?pretty"
 }
 
+explain_shard_alloc()
+{
+    curl -sX GET "localhost:9200/_cluster/allocation/explain?pretty"
+}
+
 list_cluster_health()
 {
     curl -sX GET "localhost:9200/_cluster/health?pretty"
@@ -81,11 +86,6 @@ list_nodes()
 list_remote_info()
 {
     curl -sX GET "localhost:9200/_remote/info?pretty"
-}
-
-list_shard_alloc()
-{
-    curl -sX GET "localhost:9200/_cluster/allocation/explain?pretty"
 }
 
 list_shards()
