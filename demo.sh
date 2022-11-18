@@ -27,15 +27,12 @@ echo; elrun list_disk
 echo; elrun list_indices
 echo; echo Next?; read
 
-echo
-echo - Wait for the node to joing the cluster
-echo
-sleep 5
-elrun list_nodes
-elrun list_disk
-elrun list_indices
-echo
-echo Next?; read
+echo; echo - Wait for the node to joing the cluster
+echo; sleep 5
+echo; elrun list_nodes
+echo; elrun list_disk
+echo; elrun list_indices
+echo; echo Next?; read
 
 echo
 echo - Allow node to be routed again
