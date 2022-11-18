@@ -6,7 +6,7 @@ echo; echo - Initial Docker state:
 echo; elrun cluster_ps
 echo; echo Next?; read REPLY
 
-echo; echo - Initial state
+echo; echo - Initial ES cluster state:
 echo; elrun list_cluster_settings
 echo; elrun list_disk
 echo; elrun list_indices
@@ -32,7 +32,7 @@ echo; elrun list_disk
 echo; elrun list_indices
 echo; echo Next?; read REPLY
 
-echo; echo - Wait for the node to joing the cluster
+echo; echo - Wait for the node to join the cluster:
 echo; sleep 5
 echo; elrun list_nodes
 echo; elrun list_disk
