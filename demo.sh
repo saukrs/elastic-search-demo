@@ -25,6 +25,7 @@ echo; echo Next?; read REPLY
 
 echo; echo - Exclude the node
 echo; elrun exclude_node es03
+echo; elrun list_nodes
 echo; elrun list_disk
 echo; elrun list_indices
 echo; echo Next?; read REPLY
