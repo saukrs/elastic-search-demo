@@ -3,7 +3,7 @@
 kill_after()
 {
     sleep $1
-    kill `pidof $2`
+    kill `pidof $2` 2>/dev/null
 }
 
 clear
