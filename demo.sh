@@ -32,7 +32,8 @@ ask=1
 
 clear # --------------------------------------------------------------------------------------------------------------
 
-echo; step 'TODO: Building containers for two sites'
+echo; step 'Building containers for two sites' $ask
+echo; elrun cluster_build
 
 echo; step 'Starting main site' $ask
 echo; elrun cluster__up

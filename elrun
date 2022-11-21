@@ -18,6 +18,14 @@ cluster__down()
     cluster_ps
 }
 
+cluster_build()
+{
+    docker compose pull
+    docker compose -f docker-compose.offsite.yml pull
+    docker compose build
+    docker compose -f docker-compose.offsite.yml build
+}
+
 cluster_es03_down()
 {
     docker compose stop es03
