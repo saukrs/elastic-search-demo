@@ -13,9 +13,11 @@ step()
 
     [ -z "${1##TODO*}" ] && COLORING=$PURPLE || COLORING=$GREEN
 
+    [ -z "${1##*.}" ] && PUNCT="" || PUNCT=":"
+
     [ "$2" = 1 ] && EOL="^C or go?"
 
-    echo "${COLORING}- $1:${COLOR_STOP} ${EOL}"
+    echo "${COLORING}- $1${PUNCT}${COLOR_STOP} ${EOL}"
 
     [ "$2" = 1 ] && read REPLY
 }
