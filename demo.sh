@@ -1,8 +1,11 @@
 #!/usr/bin/env sh
 
+     GREEN="\e[32m"
+COLOR_STOP="\e[0m"
+
 step()
 {
-    echo "- $1:"
+    echo "${GREEN}- $1:${COLOR_STOP}"
 }
 
 kill_after()
