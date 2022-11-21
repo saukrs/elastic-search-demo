@@ -11,7 +11,7 @@ step()
 
     [ -z "${1##TODO*}" ] && COLORING=$RED || COLORING=$GREEN
 
-    echo "${GREEN}- $1:${COLOR_STOP}"
+    echo "${COLORING}- $1:${COLOR_STOP}"
 }
 
 kill_after()
@@ -20,7 +20,7 @@ kill_after()
     kill `pidof $2` 2>/dev/null
 }
 
-clear
+clear # --------------------------------------------------------------------------------------------------------------
 
 echo; step 'TODO: Refactor printing step names + asking a confirmation to continue (after the step name is announced) into a fn'
 
