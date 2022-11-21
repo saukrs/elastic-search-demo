@@ -5,6 +5,7 @@
 
 step()
 {
+    local        EOL=""
     local        RED="\e[31m"
     local      GREEN="\e[32m"
     local COLOR_STOP="\e[0m"
