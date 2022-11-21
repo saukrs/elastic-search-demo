@@ -68,6 +68,7 @@ echo; elrun list_indices
 echo; step 'Shutdown the node' $ask
 echo; elrun cluster_es03_down
 echo; elrun cluster_es03_offsite_down
+echo; elrun cluster_ps
 echo
 
 echo; step 'Reduced ES cluster'
@@ -77,6 +78,7 @@ echo; elrun list_shards
 
 echo; step 'Bring up the backup node' $ask
 echo; elrun cluster_es03_offsite_up
+echo; elrun cluster_ps
 echo; elrun list_disk
 echo; elrun list_indices
 
