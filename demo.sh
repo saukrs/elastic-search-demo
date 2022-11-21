@@ -32,8 +32,6 @@ ask=1
 
 clear # --------------------------------------------------------------------------------------------------------------
 
-echo; step 'TODO: Refactor printing step names + asking a confirmation to continue (after the step name is announced) into a fn'
-
 echo; step 'TODO: Building containers for two sites'
 
 echo; step 'Starting main site' $ask
