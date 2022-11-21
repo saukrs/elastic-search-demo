@@ -13,8 +13,7 @@ step()
 
     [ "$2" = 1 ] && EOL="^C or go?"
 
-    echo "${COLORING}- $1:${COLOR_STOP}"
-    echo "${EOL}"
+    echo "${COLORING}- $1:${COLOR_STOP} ${EOL}"
 
     [ "$2" = 1 ] && read REPLY
 }
