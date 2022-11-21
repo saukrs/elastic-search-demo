@@ -8,9 +8,10 @@ step()
     local        EOL=""
     local        RED="\e[31m"
     local      GREEN="\e[32m"
+    local     PURPLE="\e[35m"
     local COLOR_STOP="\e[0m"
 
-    [ -z "${1##TODO*}" ] && COLORING=$RED || COLORING=$GREEN
+    [ -z "${1##TODO*}" ] && COLORING=$PURPLE || COLORING=$GREEN
 
     [ "$2" = 1 ] && EOL="^C or go?"
 
