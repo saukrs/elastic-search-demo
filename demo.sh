@@ -5,8 +5,11 @@
 
 step()
 {
+    local        RED="\e[31m"
     local      GREEN="\e[32m"
     local COLOR_STOP="\e[0m"
+
+    [ -z "${1##TODO*}" ] && COLORING=$RED || COLORING=$GREEN
 
     echo "${GREEN}- $1:${COLOR_STOP}"
 }
