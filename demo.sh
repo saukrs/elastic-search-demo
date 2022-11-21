@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# SPDX-FileCopyrightText: 2022 Saulius Krasuckas
+# SPDX-License-Identifier: BlueOak-1.0.0
+
 step()
 {
     local      GREEN="\e[32m"
