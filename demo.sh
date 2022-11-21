@@ -61,9 +61,8 @@ echo; step 'Exclude the node' $ask
 echo; elrun exclude_node es03
 echo; elrun list_disk
 echo; elrun list_indices
-echo; echo Next?; read REPLY
 
-echo; step 'Shutdown the node'
+echo; step 'Shutdown the node' $ask
 echo; elrun cluster_es03_down
 echo; elrun cluster_es03_offsite_down
 echo
@@ -72,9 +71,8 @@ echo; step 'Reduced ES cluster'
 echo; elrun list_disk
 echo; elrun list_indices
 echo; elrun list_shards
-echo; echo Next?; read REPLY
 
-echo; step 'Bring up the backup node'
+echo; step 'Bring up the backup node' $ask
 echo; elrun cluster_es03_offsite_up
 echo; elrun list_disk
 echo; elrun list_indices
