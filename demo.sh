@@ -34,9 +34,8 @@ echo; step 'TODO: Building containers for two sites'
 
 echo; step 'Starting main site' $ask
 echo; elrun cluster__up
-echo; echo Next?; read REPLY
 
-echo; step 'Waiting for ES cluster'
+echo; step 'Waiting for ES cluster' $ask
       kill_after 60 watch &
 echo; elrun cluster_watch
 echo
@@ -46,7 +45,6 @@ echo; elrun list_cluster_settings
 echo; elrun list_disk
 echo; elrun list_indices
 echo; elrun list_shards
-echo; echo Next?; read REPLY
 
 echo; step 'TODO: Creating ES indices'
 
@@ -58,7 +56,7 @@ echo; step 'TODO: Changing ES replicas number'
 # yellow open   hehe-index   WNaN5TZTQ92Vr81lgJQQlQ   1   3          0            0       416b           208b
 # yellow open   laba-diena   nGeFJqc3QrKjVmpeL1XvzA   1   4          0            0       416b           208b
 
-echo; step 'Exclude the node'
+echo; step 'Exclude the node' $ask
 echo; elrun exclude_node es03
 echo; elrun list_disk
 echo; elrun list_indices
