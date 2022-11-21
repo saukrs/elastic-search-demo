@@ -76,9 +76,8 @@ echo; step 'Bring up the backup node' $ask
 echo; elrun cluster_es03_offsite_up
 echo; elrun list_disk
 echo; elrun list_indices
-echo; echo Next?; read REPLY
 
-echo; step 'Wait for the node to join the cluster'
+echo; step 'Wait for the node to join the cluster' $ask
       kill_after 25 watch &
 echo; elrun cluster_watch
 echo
@@ -86,9 +85,8 @@ echo
 echo; step 'Restored ES cluster'
 echo; elrun list_disk
 echo; elrun list_indices
-echo; echo Next?; read REPLY
 
-echo; step 'Allow node to be routed again'
+echo; step 'Allow node to be routed again' $ask
 echo; elrun exclude_node
 echo; elrun list_disk
 echo; elrun list_indices
@@ -103,11 +101,10 @@ echo; step 'The final ES state'
 echo; elrun list_disk
 echo; elrun list_indices
 echo; elrun list_shards
-echo; echo Next?; read REPLY
 
 echo; step 'TODO: List the rebalanced Docker containers'
 
-echo; step 'Destroy the containers'
+echo; step 'Destroy the containers' $ask
 echo; elrun cluster_es03_offsite_down
 echo; elrun cluster__down
 
