@@ -43,7 +43,7 @@ echo; step 'Waiting for ES cluster' $ask
 echo; elrun cluster_watch
 echo
 
-echo; step 'Initial ES cluster state'
+echo; step 'See the initial ES cluster state' $ask
 echo; elrun list_cluster_settings
 echo; elrun list_disk
 echo; elrun list_indices
@@ -70,7 +70,7 @@ echo; elrun cluster_es03_offsite_down
 echo; elrun cluster_ps
 echo
 
-echo; step 'Reduced ES cluster'
+echo; step 'See reduced ES cluster' $ask
 echo; elrun list_disk
 echo; elrun list_indices
 echo; elrun list_shards
@@ -86,7 +86,7 @@ echo; step 'Wait for the node to join the cluster' $ask
 echo; elrun cluster_watch
 echo
 
-echo; step 'Restored ES cluster'
+echo; step 'See restored ES cluster' $ask
 echo; elrun list_disk
 echo; elrun list_indices
 
@@ -101,7 +101,7 @@ echo; step 'Wait for the replicas to distribute'
 echo; elrun cluster_watch
 echo
 
-echo; step 'The final ES state'
+echo; step 'See the final ES state' $ask
 echo; elrun list_disk
 echo; elrun list_indices
 echo; elrun list_shards
