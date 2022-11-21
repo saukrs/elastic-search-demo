@@ -105,7 +105,8 @@ echo; elrun list_disk
 echo; elrun list_indices
 echo; elrun list_shards
 
-echo; step 'TODO: List the rebalanced Docker containers'
+echo; step 'List the rebalanced Docker containers'
+echo; elrun cluster_ps
 
 echo; step 'Destroy the containers' $ask
 echo; elrun cluster_es03_offsite_down
