@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
-     GREEN="\e[32m"
-COLOR_STOP="\e[0m"
-
 step()
 {
+    local      GREEN="\e[32m"
+    local COLOR_STOP="\e[0m"
+
     echo "${GREEN}- $1:${COLOR_STOP}"
 }
 
