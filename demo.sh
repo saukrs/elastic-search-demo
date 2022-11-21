@@ -11,7 +11,12 @@ step()
 
     [ -z "${1##TODO*}" ] && COLORING=$RED || COLORING=$GREEN
 
+    [ "$2" = 1 ] && EOL="^C or go?"
+
     echo "${COLORING}- $1:${COLOR_STOP}"
+    echo "${EOL}"
+
+    [ "$2" = 1 ] && read REPLY
 }
 
 kill_after()
@@ -20,15 +25,15 @@ kill_after()
     kill `pidof $2` 2>/dev/null
 }
 
+ask=1
+
 clear # --------------------------------------------------------------------------------------------------------------
 
 echo; step 'TODO: Refactor printing step names + asking a confirmation to continue (after the step name is announced) into a fn'
 
-# step "- Starting main site:" ask
-
 echo; step 'TODO: Building containers for two sites'
 
-echo; step 'Starting main site'
+echo; step 'Starting main site' $ask
 echo; elrun cluster__up
 echo; echo Next?; read REPLY
 
