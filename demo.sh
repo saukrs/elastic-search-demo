@@ -5,13 +5,13 @@
 
 step()
 {
-    local      PUNCT=":"
-    local        EOL=""
     local        RED="\e[31m"
     local      GREEN="\e[32m"
     local     PURPLE="\e[35m"
     local COLOR_STOP="\e[0m"
     local   COLORING=$GREEN
+    local      PUNCT=":"
+    local        EOL=""
 
     [ -z "${1##TODO*}" ] && COLORING=$PURPLE
 
