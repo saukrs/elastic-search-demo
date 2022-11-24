@@ -63,7 +63,12 @@ elrun list_disk
 elrun list_indices
 elrun list_shards
 
-step 'TODO: Creating ES indices'
+step 'Creating ES indices' $ask
+
+elrun create_index sampleindex2
+elrun create_index sampleindex
+elrun create_index hehe-index
+elrun create_index laba-diena
 
 step 'TODO: Changing ES replicas number'
 
