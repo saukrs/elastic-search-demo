@@ -70,6 +70,12 @@ elrun create_index sampleindex
 elrun create_index hehe-index
 elrun create_index laba-diena
 
+step 'See the updated ES cluster state' $ask
+
+elrun list_disk
+elrun list_indices
+elrun list_shards
+
 step 'TODO: Changing ES replicas number'
 
 # health status index        uuid                   pri rep docs.count docs.deleted store.size pri.store.size
