@@ -13,8 +13,8 @@ cluster__up()
 
 cluster__down()
 {
-    docker compose down
-    docker compose -f docker-compose.offsite.yml down
+    docker compose down "$@"
+    docker compose -f docker-compose.offsite.yml down "$@"
     cluster_ps
 }
 

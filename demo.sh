@@ -150,11 +150,9 @@ step 'List the rebalanced Docker containers'
 
 elrun cluster_ps
 
-step 'Destroy the containers' $ask
+step 'Destroy the containers and the volumes' $ask
 
 elrun cluster_es03_offsite_down
-elrun cluster__down
-
-step 'TODO: Cleanup the used Docker Compose volumes too (a change in `elrun`)'
+elrun cluster__down -v
 
 step 'Demo is over.'
