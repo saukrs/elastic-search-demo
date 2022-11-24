@@ -11,17 +11,17 @@ step()
     local COLOR_STOP="\e[0m"
     local   COLORING=$GREEN
     local      PUNCT=":"
-    local        EOL=""
+    local    CONFIRM=""
 
     [ -z "${1##TODO*}" ] && COLORING=$PURPLE
 
     [ -z "${1##*.}" ] && PUNCT=""
 
-    [ "$2" = 1 ] && EOL="^C or go?"
+    [ "$2" = 1 ] && CONFIRM="^C or go?"
 
     echo
     echo
-    echo "${COLORING}- $1${PUNCT}${COLOR_STOP} ${EOL}"
+    echo "${COLORING}- $1${PUNCT}${COLOR_STOP} ${CONFIRM}"
 
     [ "$2" = 1 ] && read REPLY || echo
 }
