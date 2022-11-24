@@ -19,6 +19,7 @@ step()
 
     [ "$2" = 1 ] && EOL="^C or go?"
 
+    echo
     echo "${COLORING}- $1${PUNCT}${COLOR_STOP} ${EOL}"
 
     [ "$2" = 1 ] && read REPLY
@@ -34,26 +35,26 @@ ask=1
 
 clear # --------------------------------------------------------------------------------------------------------------
 
-echo; step 'Building containers for two sites' $ask
+step 'Building containers for two sites' $ask
 echo; elrun cluster_build
 
-echo; step 'Starting main site' $ask
+step 'Starting main site' $ask
 echo; elrun cluster__up
 
-echo; step 'Waiting for ES cluster' $ask
+step 'Waiting for ES cluster' $ask
       kill_after 60 watch &
 echo; elrun cluster_watch
 echo
 
-echo; step 'See the initial ES cluster state' $ask
+step 'See the initial ES cluster state' $ask
 echo; elrun list_cluster_settings
 echo; elrun list_disk
 echo; elrun list_indices
 echo; elrun list_shards
 
-echo; step 'TODO: Creating ES indices'
+step 'TODO: Creating ES indices'
 
-echo; step 'TODO: Changing ES replicas number'
+step 'TODO: Changing ES replicas number'
 
 # health status index        uuid                   pri rep docs.count docs.deleted store.size pri.store.size
 # green  open   sampleindex2 OoN6uwOdS9ueoWw1Zuw1Xg   1   1          0            0       416b           208b
@@ -61,60 +62,60 @@ echo; step 'TODO: Changing ES replicas number'
 # yellow open   hehe-index   WNaN5TZTQ92Vr81lgJQQlQ   1   3          0            0       416b           208b
 # yellow open   laba-diena   nGeFJqc3QrKjVmpeL1XvzA   1   4          0            0       416b           208b
 
-echo; step 'Exclude the node' $ask
+step 'Exclude the node' $ask
 echo; elrun exclude_node es03
 echo; elrun list_disk
 echo; elrun list_indices
 
-echo; step 'Shutdown the node' $ask
+step 'Shutdown the node' $ask
 echo; elrun cluster_es03_down
 echo; elrun cluster_es03_offsite_down
 echo; elrun cluster_ps
 echo
 
-echo; step 'See reduced ES cluster' $ask
+step 'See reduced ES cluster' $ask
 echo; elrun list_disk
 echo; elrun list_indices
 echo; elrun list_shards
 
-echo; step 'Bring up the backup node' $ask
+step 'Bring up the backup node' $ask
 echo; elrun cluster_es03_offsite_up
 echo; elrun cluster_ps
 echo; elrun list_disk
 echo; elrun list_indices
 
-echo; step 'Wait for the node to join the cluster' $ask
+step 'Wait for the node to join the cluster' $ask
       kill_after 25 watch &
 echo; elrun cluster_watch
 echo
 
-echo; step 'See restored ES cluster' $ask
+step 'See restored ES cluster' $ask
 echo; elrun list_disk
 echo; elrun list_indices
 
-echo; step 'Allow node to be routed again' $ask
+step 'Allow node to be routed again' $ask
 echo; elrun exclude_node
 echo; elrun list_disk
 echo; elrun list_indices
 echo
 
-echo; step 'Wait for the replicas to distribute'
+step 'Wait for the replicas to distribute'
       kill_after 10 watch &
 echo; elrun cluster_watch
 echo
 
-echo; step 'See the final ES state' $ask
+step 'See the final ES state' $ask
 echo; elrun list_disk
 echo; elrun list_indices
 echo; elrun list_shards
 
-echo; step 'List the rebalanced Docker containers'
+step 'List the rebalanced Docker containers'
 echo; elrun cluster_ps
 
-echo; step 'Destroy the containers' $ask
+step 'Destroy the containers' $ask
 echo; elrun cluster_es03_offsite_down
 echo; elrun cluster__down
 
-echo; step 'TODO: Cleanup the used Docker Compose volumes too (a change in `elrun`)'
+step 'TODO: Cleanup the used Docker Compose volumes too (a change in `elrun`)'
 
-echo; step 'Demo is over.'
+step 'Demo is over.'
