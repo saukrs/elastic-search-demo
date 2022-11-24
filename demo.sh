@@ -20,8 +20,8 @@ step()
     [ "$2" = 1 ] && CONFIRM="^C or go?"
 
     echo
-    echo
     echo "${COLORING}- $1${PUNCT}${COLOR_STOP} ${CONFIRM}"
+    echo
 
     [ "$2" = 1 ] && read REPLY || echo
 }
@@ -29,8 +29,8 @@ step()
 # Run the DIY helper script from the same dir:
 elrun()
 {
-    echo
     /usr/bin/env ./elrun "$@"
+    echo
 }
 
 kill_after()
