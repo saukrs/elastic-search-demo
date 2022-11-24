@@ -88,6 +88,12 @@ elrun set_index_replicas sampleindex 2
 elrun set_index_replicas hehe-index 3
 elrun set_index_replicas laba-diena 4
 
+step 'See the updated ES cluster state' $ask
+
+elrun list_disk
+elrun list_indices
+elrun list_shards
+
 step 'Exclude the node' $ask
 
 elrun exclude_node es03
