@@ -20,9 +20,10 @@ step()
     [ "$2" = 1 ] && EOL="^C or go?"
 
     echo
+    echo
     echo "${COLORING}- $1${PUNCT}${COLOR_STOP} ${EOL}"
 
-    [ "$2" = 1 ] && read REPLY
+    [ "$2" = 1 ] && read REPLY || echo
 }
 
 kill_after()
@@ -42,9 +43,8 @@ step 'Starting main site' $ask
 echo; elrun cluster__up
 
 step 'Waiting for ES cluster' $ask
-      kill_after 60 watch &
+echo; kill_after 60 watch &
 echo; elrun cluster_watch
-echo
 
 step 'See the initial ES cluster state' $ask
 echo; elrun list_cluster_settings
@@ -71,7 +71,6 @@ step 'Shutdown the node' $ask
 echo; elrun cluster_es03_down
 echo; elrun cluster_es03_offsite_down
 echo; elrun cluster_ps
-echo
 
 step 'See reduced ES cluster' $ask
 echo; elrun list_disk
@@ -87,7 +86,6 @@ echo; elrun list_indices
 step 'Wait for the node to join the cluster' $ask
       kill_after 25 watch &
 echo; elrun cluster_watch
-echo
 
 step 'See restored ES cluster' $ask
 echo; elrun list_disk
@@ -97,12 +95,10 @@ step 'Allow node to be routed again' $ask
 echo; elrun exclude_node
 echo; elrun list_disk
 echo; elrun list_indices
-echo
 
 step 'Wait for the replicas to distribute'
       kill_after 10 watch &
 echo; elrun cluster_watch
-echo
 
 step 'See the final ES state' $ask
 echo; elrun list_disk
