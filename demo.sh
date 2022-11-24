@@ -76,13 +76,17 @@ elrun list_disk
 elrun list_indices
 elrun list_shards
 
-step 'TODO: Changing ES replicas number'
+step 'Changing ES replicas number' $ask
 
 # health status index        uuid                   pri rep docs.count docs.deleted store.size pri.store.size
 # green  open   sampleindex2 OoN6uwOdS9ueoWw1Zuw1Xg   1   1          0            0       416b           208b
 # yellow open   sampleindex  vcsIbSLYSzu7YNtBfNXUNg   1   2          0            0       416b           208b
 # yellow open   hehe-index   WNaN5TZTQ92Vr81lgJQQlQ   1   3          0            0       416b           208b
 # yellow open   laba-diena   nGeFJqc3QrKjVmpeL1XvzA   1   4          0            0       416b           208b
+
+elrun set_index_replicas sampleindex 2
+elrun set_index_replicas hehe-index 3
+elrun set_index_replicas laba-diena 4
 
 step 'Exclude the node' $ask
 
